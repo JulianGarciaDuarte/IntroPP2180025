@@ -1,0 +1,9 @@
+codigo_fuente/summaSimple.c: In function ‘main’:
+codigo_fuente/summaSimple.c:16:5: attention : passing argument 1 of ‘printf’ makes pointer from integer without a cast [enabled by default]
+     printf(num);
+     ^
+In file included from codigo_fuente/summaSimple.c:6:0:
+/usr/include/stdio.h:362:12: note: expected ‘const char * __restrict__’ but argument is of type ‘int’
+ extern int printf (const char *__restrict __format, ...);
+            ^
+./ejecutables/sumaSimple

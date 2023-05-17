@@ -1,0 +1,4 @@
+codigo_fuente/summaSimple.c: In function ‘main’:
+codigo_fuente/summaSimple.c:21:3: erreur: directive de pré-traitement #printf invalide
+  #printf("%d\n", sum);
+   ^

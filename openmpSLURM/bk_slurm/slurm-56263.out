@@ -1,0 +1,6 @@
+codigo_fuente/summaSimple.c: In function ‘main’:
+codigo_fuente/summaSimple.c:18:13: erreur: expected ‘;’ before ‘#pragma’
+     #pragma omp parallel for reduction(+:sum) 
+             ^
+Enter a positive integer: 
+Sum = 0
