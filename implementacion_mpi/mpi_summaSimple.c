@@ -29,7 +29,7 @@ int main(int argc, char **argv[])
     int start = rank * (num / size) + 1;  // Calculate the starting number for each process
     int end = (rank + 1) * (num / size);  // Calculate the ending number for each process
 
-    for (count = start; i <= end; i++) {
+    for (count = start; count <= end; count++) {
         localSum += i;  // Calculate the local sum for each process
     }
 
