@@ -1,0 +1,2 @@
+Sum: 5050
+Execution time: 0.000089 seconds
