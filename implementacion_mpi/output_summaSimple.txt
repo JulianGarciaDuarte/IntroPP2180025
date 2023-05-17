@@ -1,0 +1,3 @@
+Calculo de la suma de los 10 primero numeros naturales
+Resultado: 55
+El tiempo de ejecucion del procedimiento fue: 432 microsegundos
