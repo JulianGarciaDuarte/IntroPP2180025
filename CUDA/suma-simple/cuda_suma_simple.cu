@@ -1,4 +1,4 @@
-#include <stdio.h>
+include <stdio.h>
 
 __global__ void sumaSimple(int n, int *result) {
     int tid=threadIdx.x + blockIdx.x * blockDim.x;
@@ -10,24 +10,23 @@ __global__ void sumaSimple(int n, int *result) {
     }
 
     atomicAdd(result, partialSum);
-    return;
 }
 
 int main() {
     float hostResult = 0;
 
     // Sets the size of the numbers
-    int n = 100000;
+    int n = 100000
 
     // Declara y ubica la memoria del lado del host
-    int *devResult;
+    int *devResult
     cudaMalloc((void**)&devResult, sizeof(int));
     
     // Copia los datos de entrada del host al dispositivo
     cudaMemcpy(devResult, &hostResult, sizeof(int), cudaMemcpyHostToDevice);
     
     // Set block and grid dimentions
-    int blockSize=256;
+    int blocksize=256
     int gridSize = (n + blockSize - 1)/blockSize;
     
     // Lanza el kernel
@@ -40,7 +39,7 @@ int main() {
     cudaFree(devResult);
     
     // Muestra el resultado
-    printf("La suma de los primeros %d numeros naturales is %d\n", n, hostResult);
+    printf("La suma de los primeros %d numeros naturales is %d/n", n, hostResult);
     return 0;
 }
 
