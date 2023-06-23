@@ -16,17 +16,17 @@ int main() {
     float hostResult = 0;
 
     // Sets the size of the numbers
-    int n = 100000
+    int n = 100000;
 
     // Declara y ubica la memoria del lado del host
-    int *devResult
+    int *devResult;
     cudaMalloc((void**)&devResult, sizeof(int));
     
     // Copia los datos de entrada del host al dispositivo
     cudaMemcpy(devResult, &hostResult, sizeof(int), cudaMemcpyHostToDevice);
     
     // Set block and grid dimentions
-    int blocksize=256
+    int blocksize=256;
     int gridSize = (n + blockSize - 1)/blockSize;
     
     // Lanza el kernel
