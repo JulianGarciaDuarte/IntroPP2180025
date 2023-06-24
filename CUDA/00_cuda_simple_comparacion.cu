@@ -94,12 +94,19 @@ int main(){
     int num = 0;
     for (int i=0; i<=10; i++){
         printf("\n\n");
+<<<<<<< HEAD
 	printf("Comparacion para n = %d\n", num);	
 
+=======
+>>>>>>> 3a5d184085cc251cc3b48275986f9b4c30ae357a
         num = pow(10, i);
         run_time_cuda = run_cuda_suma_simple(num);
         run_time_sec = run_sec_suma_simple(num);
 
+<<<<<<< HEAD
+=======
+        printf("Comparacion para n = %d\n", num);	
+>>>>>>> 3a5d184085cc251cc3b48275986f9b4c30ae357a
         printf("Tiempo Cuda (milisegundos)       = %f\n", run_time_cuda); 
         printf("Tiempo Secuencial (milisegundos) = %f\n", run_time_sec); 
 
