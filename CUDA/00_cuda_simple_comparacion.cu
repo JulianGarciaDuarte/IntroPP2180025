@@ -55,7 +55,7 @@ float run_cuda_suma_simple(int num){
     cudaEventRecord(start, 0); //comienza a tomar el tiempo
 
     int result = cuda_suma_simple(num);
-    printf("Resultado Cuda = %f\n", result);
+    printf("Resultado Cuda = %d\n", result);
 
     cudaEventRecord(stop, 0); //para de tomar el tiempo
     cudaEventSynchronize(stop);
@@ -79,7 +79,7 @@ float run_sec_suma_simple(int num){
 
 
     int result = sec_suma_simple(num);
-    printf("Resultado Secu = %f\n", result);
+    printf("Resultado Secu = %d\n", result);
 
     cudaEventRecord(stop, 0); //para de tomar el tiempo
     cudaEventSynchronize(stop);
