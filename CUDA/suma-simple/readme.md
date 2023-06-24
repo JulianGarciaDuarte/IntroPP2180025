@@ -4,6 +4,26 @@
 - Jeicob Gilmar Restrepo Gómez - 2183076
 - Sebastián David Mendoza Alvarado -2191969
 
+
+## Descripción del Proceso de Ejecución con CUDA para `trapezAreaSimple`
+
+A continuación se describe el proceso paso a paso para ejecutar el código paralelizado con CUDA utilizando el archivo "00_cuda_simple_comparacion.cu":
+
+1. Cargar el módulo CUDA:
+   - El proceso comienza cargando el módulo "devtools/cuda/8.0" para asegurar que las herramientas de desarrollo y la versión adecuada de CUDA estén disponibles en el entorno de ejecución.
+
+2. Solicitar recursos de la GPU:
+   - Se utiliza el comando `srun` para solicitar recursos de la GPU y obtener acceso a una máquina que tenga una GPU disponible. La opción `--gres=gpu` se utiliza para especificar que solo se requiere una GPU para la ejecución.
+     
+3. Iniciar una sesión interactiva:
+   - El parámetro `--pty` se utiliza con el comando `srun` para iniciar una sesión interactiva en la máquina asignada. Esto permite ejecutar comandos en un entorno interactivo dentro de la GPU asignada.
+
+4. Compilar el código CUDA:
+   - Se utiliza el compilador `nvcc` (NVIDIA CUDA Compiler) para compilar el archivo "00_cuda_simple_comparacion.cu". El comando de compilación utilizado es `nvcc 00_cuda_simple_comparacion.cu -o 00_cuda_simple_comparacion`, donde se especifica el nombre de salida del ejecutable como "00_cuda_simple_comparacion".
+
+5. Ejecutar el programa:
+   - Finalmente, se ejecuta el programa utilizando el comando `./00_cuda_simple_comparacion`. Esto inicia la ejecución del código paralelizado con CUDA y muestra los resultados en la salida estándar.
+
 # Suma Simple
 
 Para esta parte del taller se vario la cantidad de numeros sobre los cuales calcular la suma desde 1 hasta 1000 incrementando en cada iteracion un orden de magnitud. Todos los experimentos se corrieron en el cluster de Guane.
