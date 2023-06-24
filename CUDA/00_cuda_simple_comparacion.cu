@@ -1,0 +1,107 @@
+#include <stdio.h>
+
+
+__global__ void sumParallel(double *dev_sum, double num)
+{
+    int tid = threadIdx.x + blockIdx.x * blockDim.x;
+    int stride = blockDim.x * gridDim.x;
+
+    while (tid <= num)
+    {
+
+	/* se usa la función atomicAdd para realizar la sumatoria y  garantizar que varios hilos no vayan a escribir simultáneamente en la misma ubicación de memoria. */
+        atomicAdd(dev_sum, (double)tid);
+        tid += stride; //coge el identificado unico de cada hilo y le agrega el paso para pasar al siguiente hilo
+    }
+}
+
+double cuda_suma_simple(double num)
+{
+    //int num, sum = 0;
+    double sum = 0;
+
+    double *dev_sum; //referencia de la variable que se ubicara en el device
+
+  
+    cudaMalloc((void**)&dev_sum, sizeof(double)); //reservamos espacio de memoria
+    cudaMemcpy(dev_sum, &sum, sizeof(double), cudaMemcpyHostToDevice); //copaimos la variable desde el host al sum
+
+    int blockSize = 256;
+    int gridSize = (num + blockSize - 1) / blockSize;
+
+    sumParallel<<<gridSize, blockSize>>>(dev_sum, num); //invocamos el kernel sumParallel que es el que se encarga de realizar la suma
+    
+    cudaMemcpy(&sum, dev_sum, sizeof(double), cudaMemcpyDeviceToHost); //copiamos el resultado ahora en sentido contrario, es decir desde el device hasta el host
+    cudaFree(dev_sum); //liberamos la memoria reservada
+
+    return sum;
+}
+double sec_suma_simple(double num){
+    double resultado = 0;
+    for(int i=0; i<=num; i++){
+         resultado+=i;
+    }
+    return resultado;
+}
+float run_cuda_suma_simple(double num){
+
+     /*Inicializamos las variables con las cuales tomaremos el tiempo */
+    cudaEvent_t start, stop;
+    float elapsedTime;
+ 
+    // Toma el tiempo del acelerado por gpu
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+    cudaEventRecord(start, 0); //comienza a tomar el tiempo
+
+    double result = cuda_suma_simple(num);
+    printf("Resultado Cuda = %f\n", result);
+
+    cudaEventRecord(stop, 0); //para de tomar el tiempo
+    cudaEventSynchronize(stop);
+    cudaEventElapsedTime(&elapsedTime, start, stop);
+
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
+    return elapsedTime;
+}
+
+float run_sec_suma_simple(double num){
+ 
+     /*Inicializamos las variables con las cuales tomaremos el tiempo */
+    cudaEvent_t start, stop;
+    float elapsedTime;
+ 
+    // Toma el tiempo del acelerado por gpu
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+    cudaEventRecord(start, 0); //comienza a tomar el tiempo
+
+
+    double result = sec_suma_simple(num);
+    printf("Resultado Secu = %f\n", result);
+
+    cudaEventRecord(stop, 0); //para de tomar el tiempo
+    cudaEventSynchronize(stop);
+    cudaEventElapsedTime(&elapsedTime, start, stop);
+
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
+    return elapsedTime;
+}   
+
+int main(){
+    float run_time_sec, run_time_cuda;
+    int num = 0;
+    for (int i=0; i<=10; i++){
+        num = pow(10, i);
+        run_time_cuda = run_cuda_suma_simple(num);
+        run_time_sec = run_sec_suma_simple(num);
+	printf("\n\n");
+	printf("Comparacion para n = %d\n", num);	
+	printf("Tiempo Cuda (milisegundos)       = %f\n", run_time_cuda); 
+        printf("Tiempo Secuencial (milisegundos) = %f\n", run_time_sec); 
+ 
+   }
+
+}
