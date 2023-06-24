@@ -1,3 +1,9 @@
+# Integrantes del Equipo
+
+- Julian Esteban Garcia Duarte - 2180025
+- Jeicob Gilmar Restrepo Gómez - 2183076
+- Sebastián David Mendoza Alvarado -2191969
+- 
 # Suma Simple
 
 Para esta parte del taller se vario la cantidad de numeros sobre los cuales calcular la suma desde 1 hasta 1000 incrementando en cada iteracion un orden de magnitud. Todos los experimentos se corrieron en el cluster de Guane.
