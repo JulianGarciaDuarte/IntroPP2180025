@@ -1,7 +1,7 @@
 # Suma Simple
 
 Para esta parte del taller se vario la cantidad de numeros sobre los cuales calcular la suma desde 1 hasta 1000 incrementando en cada iteracion un orden de magnitud. Todos los experimentos se corrieron en el cluster de Guane.
-
+```
 Comparacion para n = 0
 Resultado Cuda = 1
 Resultado Secu = 1
@@ -51,7 +51,7 @@ Speedup: 0.03
 Escalabilidad: 0.00
 Performance: 0.01 FLOPS
 
-
+```
 Los resultados comparan diferentes ejecuciones para un valor creciente de n utilizando el código proporcionado. Basándonos en la información proporcionada, se pueden obtener las siguientes conclusiones:
 
 En la comparación de resultados, los valores obtenidos de la implementación en CUDA y la implementación secuencial (Resultado Cuda y Resultado Secu, respectivamente) son consistentes y coinciden para cada valor de n probado, lo que indica que ambas implementaciones producen la suma correcta.
