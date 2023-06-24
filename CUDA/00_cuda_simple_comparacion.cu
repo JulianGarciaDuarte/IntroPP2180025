@@ -17,7 +17,6 @@ __global__ void sumParallel(int *dev_sum, int num)
 
 int cuda_suma_simple(int num)
 {
-    //int num, sum = 0;
     int sum = 0;
 
     int *dev_sum; //referencia de la variable que se ubicara en el device
@@ -94,14 +93,31 @@ int main(){
     float run_time_sec, run_time_cuda;
     int num = 0;
     for (int i=0; i<=10; i++){
+        printf("\n\n");
+	printf("Comparacion para n = %d\n", num);	
+
         num = pow(10, i);
         run_time_cuda = run_cuda_suma_simple(num);
         run_time_sec = run_sec_suma_simple(num);
-	printf("\n\n");
-	printf("Comparacion para n = %d\n", num);	
-	printf("Tiempo Cuda (milisegundos)       = %f\n", run_time_cuda); 
+
+        printf("Tiempo Cuda (milisegundos)       = %f\n", run_time_cuda); 
         printf("Tiempo Secuencial (milisegundos) = %f\n", run_time_sec); 
- 
+
+
+        int blockSize = 256;
+        int gridSize = (num + blockSize - 1) / blockSize;
+        int numThreads = gridSize * blockSize;
+        double speedup = run_time_cuda / run_time_sec;
+        double scalability = run_time_sec / (run_time_cuda * numThreads);
+
+        printf("Speedup: %.2f\n", speedup);
+        printf("Escalabilidad: %.2f\n", scalability);
+
+        int numOperations = num - 1;  // Número de operaciones de punto flotante realizadas
+        double performance = numOperations / (run_time_cuda * 1e6);  // Rendimiento computacional en FLOPS
+        printf("Performance: %.2f FLOPS\n", performance);
+  
+  
    }
 
 }
