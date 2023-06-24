@@ -18,8 +18,7 @@ int run_omp_suma_simple(int num)
     #pragma omp parallel for reduction(+:sum)
 
     // Executes the sum
-    for(count = 1; count <= num; ++count)
-    {
+    for (count = 1; count <= num; ++count){
         sum += count;
     }
     
@@ -36,7 +35,7 @@ int sec_suma_simple(int num){
     int resultado = 0; // Variable para almacenar la suma
 
     // Ciclo de suma secuencial
-    for(int i = 0; i <= num; i++){
+    for (int i = 0; i <= num; i++){
          resultado += i; // Sumar el valor de i al resultado
     }
 

@@ -126,7 +126,7 @@ int main() {
         int numThreads = gridSize * blockSize;
 
         // Calcular el speedup y la escalabilidad
-        double speedup = run_time_cuda / run_time_sec;
+        double speedup = run_time_sec / run_time_cuda;
         double scalability = run_time_sec / (run_time_cuda * numThreads);
 
         printf("Speedup: %.2f\n", speedup);
