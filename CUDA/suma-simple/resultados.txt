@@ -1,0 +1,110 @@
+
+
+Comparacion para n = 0
+Resultado Cuda = 1
+Resultado Secu = 1
+Tiempo Cuda (milisegundos)       = 0.904032
+Tiempo Secuencial (milisegundos) = 0.004800
+Speedup: 188.34
+Escalabilidad: 0.00
+Performance: 0.00 FLOPS
+
+
+Comparacion para n = 1
+Resultado Cuda = 55
+Resultado Secu = 55
+Tiempo Cuda (milisegundos)       = 0.807744
+Tiempo Secuencial (milisegundos) = 0.004800
+Speedup: 168.28
+Escalabilidad: 0.00
+Performance: 0.00 FLOPS
+
+
+Comparacion para n = 10
+Resultado Cuda = 5050
+Resultado Secu = 5050
+Tiempo Cuda (milisegundos)       = 0.792544
+Tiempo Secuencial (milisegundos) = 0.004768
+Speedup: 166.22
+Escalabilidad: 0.00
+Performance: 0.00 FLOPS
+
+
+Comparacion para n = 100
+Resultado Cuda = 500500
+Resultado Secu = 500500
+Tiempo Cuda (milisegundos)       = 0.825632
+Tiempo Secuencial (milisegundos) = 0.005664
+Speedup: 145.77
+Escalabilidad: 0.00
+Performance: 0.00 FLOPS
+
+
+Comparacion para n = 1000
+Resultado Cuda = 50005000
+Resultado Secu = 50005000
+Tiempo Cuda (milisegundos)       = 0.955424
+Tiempo Secuencial (milisegundos) = 0.037888
+Speedup: 25.22
+Escalabilidad: 0.00
+Performance: 0.01 FLOPS
+
+
+Comparacion para n = 10000
+Resultado Cuda = 705082704
+Resultado Secu = 705082704
+Tiempo Cuda (milisegundos)       = 2.292544
+Tiempo Secuencial (milisegundos) = 0.351264
+Speedup: 6.53
+Escalabilidad: 0.00
+Performance: 0.04 FLOPS
+
+
+Comparacion para n = 100000
+Resultado Cuda = 1784293664
+Resultado Secu = 1784293664
+Tiempo Cuda (milisegundos)       = 15.632512
+Tiempo Secuencial (milisegundos) = 3.502240
+Speedup: 4.46
+Escalabilidad: 0.00
+Performance: 0.06 FLOPS
+
+
+Comparacion para n = 1000000
+Resultado Cuda = -2004260032
+Resultado Secu = -2004260032
+Tiempo Cuda (milisegundos)       = 148.915939
+Tiempo Secuencial (milisegundos) = 24.455681
+Speedup: 6.09
+Escalabilidad: 0.00
+Performance: 0.07 FLOPS
+
+
+Comparacion para n = 10000000
+Resultado Cuda = 0
+Resultado Secu = 987459712
+Tiempo Cuda (milisegundos)       = 0.692704
+Tiempo Secuencial (milisegundos) = 244.366501
+Speedup: 0.00
+Escalabilidad: 0.00
+Performance: 144.36 FLOPS
+
+
+Comparacion para n = 100000000
+Resultado Cuda = 0
+Resultado Secu = -243309312
+Tiempo Cuda (milisegundos)       = 0.704512
+Tiempo Secuencial (milisegundos) = 2416.835449
+Speedup: 0.00
+Escalabilidad: 0.00
+Performance: 1419.42 FLOPS
+
+
+Comparacion para n = 1000000000
+Resultado Cuda = 0
+Resultado Secu = 0
+Tiempo Cuda (milisegundos)       = 0.745120
+Tiempo Secuencial (milisegundos) = 0.004768
+Speedup: 156.28
+Escalabilidad: -0.00
+Performance: 2882.06 FLOPS
